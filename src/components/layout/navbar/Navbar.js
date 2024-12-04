@@ -2,8 +2,11 @@ import { useLocation, NavLink, Link } from "react-router-dom";
 import "./Navbar.scss";
 import { AiOutlineMenu } from "react-icons/ai";
 import logo from  "../../pages/images/alfahad3.png"
-const Navbar = () => {
+import { useRef } from "react";
+import { useEffect } from "react";
 
+const Navbar = () => {
+const btn = useRef(null);
 
   const navbarlinks = [
     {
@@ -34,6 +37,17 @@ const Navbar = () => {
 ];
 
   const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    const menuBtn = btn.current;
+    if (menuBtn) {
+      if(menuBtn.getAttribute('aria-expanded') == 'true'){
+        menuBtn?.click();
+      }
+    }
+  })
+
   return (
     <nav
       className={
@@ -56,6 +70,7 @@ const Navbar = () => {
         </Link>
     
         <button
+        ref={btn}
           className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
@@ -80,7 +95,7 @@ const Navbar = () => {
           </ul>
           <div className="langs">
          
-            <Link to="contact"> <span>أبدا مشروك</span> </Link>
+            <Link to="contact"> <span>أبدا مشروعك</span> </Link>
           </div>
         </div>
       </div>

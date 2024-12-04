@@ -20,9 +20,8 @@ const About = () => {
 </Helmet>
 <BreadCrumb title = "من نحن" />
     <section className='about'>
-      <div style={{paddingRight:"1rem" , width:"100%"}}> <Coustomheader  title = "من نحن"/></div>
-   
         <div className="container">
+      <Coustomheader  title = "من نحن"/>
        
           <div className='about-up'>
           
